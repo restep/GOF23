@@ -5,7 +5,6 @@ package com.restep.iterator;
  * @date 2019/4/22
  */
 public class IteratorTest {
-
     public static void main(String[] args) {
         ConcreteMyAggregate cma = new ConcreteMyAggregate();
         cma.addObject("aa");
