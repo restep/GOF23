@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
  * HungerSingleton       15ms
  * LazySingleton         67.6ms
  * InnerClassSingleton   16.3ms
- * SynchronizedSingleton 14ms
+ * DoubleCheckSingleton 14ms
  * EnumSingleton         8.6ms
  *
  * @author restep
