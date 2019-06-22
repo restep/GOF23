@@ -15,7 +15,7 @@ public class DoubleCheckSingletonTest {
 }
 
 class DoubleCheckSingleton {
-    private static DoubleCheckSingleton instance = null;
+    private static volatile DoubleCheckSingleton instance = null;
 
     private DoubleCheckSingleton() {
 
@@ -30,18 +30,9 @@ class DoubleCheckSingleton {
      */
     public static DoubleCheckSingleton getInstance() {
         if (null == instance) {
-            DoubleCheckSingleton doubleCheckSingleton;
             synchronized (DoubleCheckSingleton.class) {
-                doubleCheckSingleton = instance;
-
-                if (null == doubleCheckSingleton) {
-                    synchronized (DoubleCheckSingleton.class) {
-                        if (null == doubleCheckSingleton) {
-                            doubleCheckSingleton = new DoubleCheckSingleton();
-                        }
-                    }
-
-                    instance = doubleCheckSingleton;
+                if (null == instance) {
+                    instance = new DoubleCheckSingleton();
                 }
             }
         }
